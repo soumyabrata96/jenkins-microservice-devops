@@ -19,4 +19,15 @@ pipeline {
             }
         }
     }
+    post{
+        always{
+            echo "I will show everyone my capabilities !!"
+        }
+        success{
+            echo "Fuck Capgemini and BDN !! I will write my own success story !!"
+        }
+        failure{
+            echo "I am total failure !!"
+        }
+    }
 }
