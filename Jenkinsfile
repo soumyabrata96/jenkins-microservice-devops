@@ -5,4 +5,7 @@ node {
 	stage('Test') {
 		echo "Coupon-Service Microservic : Test"
 	}
+	stage('Integration Test') {
+		echo "Coupon-Service Microservic : Integration Test"
+	}
 }
