@@ -4,7 +4,7 @@ pipeline {
     agent { 
         docker 
         {
-            lable 'linux' 
+            label 'linux' 
             image 'eclipse-temurin:17-jdk-alpine' 
         } 
     }
