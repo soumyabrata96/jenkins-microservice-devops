@@ -1,6 +1,7 @@
 //Declarative
 pipeline {
-    agent {docker{image "eclipse-temurin:17-jdk-alpine"}}
+    //agent any
+    agent { docker { image "eclipse-temurin:17-jdk-alpine" } }
     stages
     {
         stage('Build') {
