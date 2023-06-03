@@ -6,17 +6,18 @@ pipeline {
     {
         stage('Build') {
             steps{
-                echo "Coupon-Service Microservic : Build"
+                sh 'java --version'
+                echo "Build"
             }
         }
         stage('Test') {
             steps{
-                echo "Coupon-Service Microservic : Test"
+                echo "Test"
             }
         }
         stage('Integration Test') {
             steps{
-                echo "Coupon-Service Microservic : Integration Test"
+                echo "Integration Test"
             }
         }
     }
