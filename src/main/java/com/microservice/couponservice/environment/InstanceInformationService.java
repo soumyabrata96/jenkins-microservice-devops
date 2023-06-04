@@ -8,14 +8,14 @@ public class InstanceInformationService {
 
     private static final String HOST_NAME = "HOSTNAME";
 
-    private static final String DEFAULT_ENV_INSTANCE_GUID = "LOCAL";
+    private static final String DEFAULT_ENV_INSTANCE_GUID = "UNKNOWN";
 
     // @Value(${ENVIRONMENT_VARIABLE_NAME:DEFAULT_VALUE})
     @Value("${" + HOST_NAME + ":" + DEFAULT_ENV_INSTANCE_GUID + "}")
     private String hostName;
 
     public String retrieveInstanceInfo() {
-        return hostName.substring(hostName.length() - 5);
+        return hostName+" v1 "+hostName.substring(hostName.length() - 5);
     }
 }
 

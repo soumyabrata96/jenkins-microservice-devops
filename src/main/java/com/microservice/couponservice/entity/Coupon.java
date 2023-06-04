@@ -1,5 +1,7 @@
 package com.microservice.couponservice.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +19,6 @@ public class Coupon {
     private Long id;
     private String code;
     private BigDecimal discount;
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate expDate;
 }
