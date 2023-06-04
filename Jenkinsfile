@@ -2,7 +2,7 @@
 pipeline {
     agent any
     // agent { docker { image 'eclipse-temurin:17-jdk-alpine' } }
-    envrionment{
+    environment {
         dockerHome=tool 'myDocker'
         mavenHome=tool 'myMaven'
         PATH="$dockerHome/bin:$mavenHome/bin:$PATH"
