@@ -45,7 +45,7 @@ pipeline {
         stage('Build Docker Image'){
             steps{
                 script{
-                    dockerImage=docker.build("soumyabratamukh1/coupon-service:latest")
+                    dockerImage=docker.build("soumyabratamukh1/coupon-service")
                 }
             }
         }
@@ -53,7 +53,7 @@ pipeline {
             steps{
                 script{
                     docker.withRegistry( '', 'dockerhub'){
-                        dockerImage.push();
+                        dockerImage.push("latest");
                     }
                 }
             }
