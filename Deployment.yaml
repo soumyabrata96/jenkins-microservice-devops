@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: coupon-service
+  name: coupon-service
+  namespace: default
+spec:
+  replicas: 1
+  minReadySeconds: 45
+  selector:
+    matchLabels:
+      app: coupon-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: coupon-service
+    spec:
+      containers:
+      - image: soumyabratamukh1/coupon-service:latest
+        imagePullPolicy: IfNotPresent
+        name: coupon-service
+        env:
+          - name: CLIENT_SECRET
+            valueFrom: 
+              configMapKeyRef:
+                key: CLIENT_SECRET
+                name: product-service-config-map
+        readinessProbe:
+          httpGet:
+            path: /coupon-service/actuator/health/readiness
+            port: 8006
+          failureThreshold: 5
+          periodSeconds: 10
+          initialDelaySeconds: 60
+        livenessProbe:
+          httpGet:
+            path: /coupon-service/actuator/health/liveness
+            port: 8006
+          failureThreshold: 5
+          periodSeconds: 10
+          initialDelaySeconds: 60
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30

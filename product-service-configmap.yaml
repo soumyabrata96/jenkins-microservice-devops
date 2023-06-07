@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  COUPON_SERVICE_HOST:  http://coupon-service
+  CLIENT_SECRET: s9egGglLzj2j2KBoWGjyqXgCHivDkWR
+kind: ConfigMap
+metadata:
+  name: product-service-config-map
+  namespace: default

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: coupon-service
+  name: coupon-service
+  namespace: default
+spec:
+  ports:
+  - port: 8006
+    protocol: TCP
+    targetPort: 8006
+  selector:
+    app: coupon-service
+  sessionAffinity: None
+  type: LoadBalancer

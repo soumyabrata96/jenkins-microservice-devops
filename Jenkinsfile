@@ -45,7 +45,7 @@ pipeline {
         stage('Build Docker Image'){
             steps{
                 script{
-                    dockerImage=docker.build("soumyabratamukh1/coupon-service:${env.BUILD_TAG}")
+                    dockerImage=docker.build("soumyabratamukh1/coupon-service:latest")
                 }
             }
         }
@@ -58,7 +58,13 @@ pipeline {
                 }
             }
         }
-
+        stage('Deploying Coupon-Service to Kubernetes'){
+            steps{
+                script{
+                    kubernetesDeploy(config: "product-service-configmap.yaml","deploy.yaml","service.yaml")
+                }
+            }
+        }
     }
     post{
         always{
