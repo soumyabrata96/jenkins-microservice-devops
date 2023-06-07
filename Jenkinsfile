@@ -61,7 +61,7 @@ pipeline {
         stage('Deploying Coupon-Service to Kubernetes'){
             steps{
                 script{
-                    kubernetesDeploy(config: "product-service-configmap.yaml","deploy.yaml","service.yaml")
+                    kubernetesDeploy(config: "product-service-configmap.yaml","deployment.yaml","service.yaml")
                 }
             }
         }
