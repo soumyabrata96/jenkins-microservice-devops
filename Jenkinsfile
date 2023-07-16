@@ -58,16 +58,6 @@ pipeline {
                 }
             }
         }
-<<<<<<< HEAD
-=======
-        stage('Deploying Coupon-Service to Kubernetes'){
-            steps{
-                script{
-                    kubernetesDeploy(configs: "product-service-configmap.yaml", "deployment.yaml", "service.yaml")
-                }
-            }
-        }
->>>>>>> 4d77e794c84d33e9238ec0dc68a6491402fdca13
     }
     post{
         always{
